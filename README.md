@@ -15,7 +15,7 @@ A modern, responsive implementation of the classic Snake game built with React. 
 
 ## 🚀 Demo
 
-[Add your live demo link here]
+[live demo link ](https://deepakpatil26.github.io/react-snake-game)
 
 ![Screenshot](public/react-snake-game.png)
 
@@ -25,7 +25,6 @@ A modern, responsive implementation of the classic Snake game built with React. 
 - JavaScript/ES6+
 - HTML5
 - CSS3
-- Local Storage (for high score persistence)
 
 ## 📦 Installation
 

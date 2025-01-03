@@ -1,6 +1,6 @@
 # 🐍 React Snake Game
 
-<img src="public/snake-game-logo.png" width="200" alt="Snake Game Logo" style="border-radius: 40; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+<img src="public/snake-game-logo.png" width="200" alt="Snake Game Logo" style="border-radius: 40px">
 
 A modern, responsive implementation of the classic Snake game built with React. Experience nostalgia with a fresh, contemporary twist!
 

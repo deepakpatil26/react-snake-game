@@ -1,5 +1,7 @@
 # 🐍 React Snake Game
 
+<img src="public/snake-game-logo.png" width="200" alt="Snake Game Logo" style="border-radius: 40px">
+
 A modern, responsive implementation of the classic Snake game built with React. Experience nostalgia with a fresh, contemporary twist!
 
 ## ✨ Features
@@ -9,7 +11,7 @@ A modern, responsive implementation of the classic Snake game built with React. 
 - Modern, minimalist design with sleek animations
 - Mobile-friendly with touch controls
 - Customizable game speed and difficulty levels
-- Collision detection and game over scenarios
+- Collision detection and game-over scenarios
 - Pause/Resume functionality
 - Background grid for better visual guidance
 

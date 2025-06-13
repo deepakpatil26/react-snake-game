@@ -178,3 +178,37 @@ button:hover {
 .grid-cell {
   animation: smooth-move 0.2s ease-out;
 }
+
+/* Target dark mode globally */
+.App.dark .game-container {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+.App.dark .grid-container {
+  background-color: #2c2c2c;
+}
+
+.App.dark .grid-cell {
+  background-color: #444;
+  border: 1px solid #555;
+}
+
+.App.dark .snake {
+  background-color: #00c853;
+}
+
+.App.dark .food {
+  background-color: #ff6e40;
+}
+
+.snake,
+.food {
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+  opacity: 1;
+}
+
+.App.dark .snake,
+.App.dark .food {
+  opacity: 0.9;
+}

@@ -15,7 +15,7 @@ A modern, responsive implementation of the classic Snake game built with React. 
 
 ## 🚀 Demo
 
-[live demo link ](https://deepakpatil26.github.io/react-snake-game)
+![live demo link ](https://deepakpatil26.github.io/react-snake-game)
 
 ![Screenshot](public/react-snake-game.png)
 
@@ -29,21 +29,25 @@ A modern, responsive implementation of the classic Snake game built with React. 
 ## 📦 Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/deepakpatil2612/react-snake-game.git
 ```
 
 2. Navigate to the project directory:
+
 ```bash
 cd react-snake-game
 ```
 
 3. Install dependencies:
+
 ```bash
 npm install
 ```
 
 4. Start the development server:
+
 ```bash
 npm start
 ```

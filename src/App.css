@@ -1,3 +1,31 @@
 .App {
   text-align: center;
 }
+
+.App.dark {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+.dark-mode-toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 10px 16px;
+  background-color: #444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Smooth transitions for theme change */
+body,
+.App,
+.game-container,
+.grid-container,
+.grid-cell,
+.snake,
+.food {
+  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+}

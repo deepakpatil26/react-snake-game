@@ -1,16 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect, useRef } from "react";
-import { useSwipeable } from "react-swipeable";
-import "./SnakeGame.css"; // Import the CSS file
+import React, { useState, useEffect, useRef } from 'react';
+import { useSwipeable } from 'react-swipeable';
+import './SnakeGame.css'; // Import the CSS file
 
-const SnakeGame = () => {
+const SnakeGame = ({ darkMode }) => {
   const [snake, setSnake] = useState([[5, 5]]);
   const [food, setFood] = useState([10, 10]);
-  const [direction, setDirection] = useState("RIGHT");
+  const [direction, setDirection] = useState('RIGHT');
   const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [difficulty, setDifficulty] = useState("medium"); // Default difficulty is medium
+  const [difficulty, setDifficulty] = useState('medium'); // Default difficulty is medium
 
   const GRID_SIZE = 20;
   const gameIntervalRef = useRef(null); // To store the interval ID
@@ -18,11 +18,11 @@ const SnakeGame = () => {
   // Adjust game speed based on difficulty level
   const getSpeed = () => {
     switch (difficulty) {
-      case "slow":
+      case 'slow':
         return 300; // Slow speed
-      case "medium":
+      case 'medium':
         return 200; // Medium speed
-      case "fast":
+      case 'fast':
         return 100; // Fast speed
       default:
         return 200;
@@ -34,34 +34,34 @@ const SnakeGame = () => {
     const handleKeyDown = (e) => {
       if (!isPlaying) return;
       switch (e.key) {
-        case "ArrowUp":
-          if (direction !== "DOWN") setDirection("UP");
+        case 'ArrowUp':
+          if (direction !== 'DOWN') setDirection('UP');
           break;
-        case "ArrowDown":
-          if (direction !== "UP") setDirection("DOWN");
+        case 'ArrowDown':
+          if (direction !== 'UP') setDirection('DOWN');
           break;
-        case "ArrowLeft":
-          if (direction !== "RIGHT") setDirection("LEFT");
+        case 'ArrowLeft':
+          if (direction !== 'RIGHT') setDirection('LEFT');
           break;
-        case "ArrowRight":
-          if (direction !== "LEFT") setDirection("RIGHT");
+        case 'ArrowRight':
+          if (direction !== 'LEFT') setDirection('RIGHT');
           break;
         default:
           break;
       }
     };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
   }, [direction, isPlaying]);
 
   // Handle touch controls
   const swipeHandlers = useSwipeable({
-    onSwipedUp: () => isPlaying && direction !== "DOWN" && setDirection("UP"),
-    onSwipedDown: () => isPlaying && direction !== "UP" && setDirection("DOWN"),
+    onSwipedUp: () => isPlaying && direction !== 'DOWN' && setDirection('UP'),
+    onSwipedDown: () => isPlaying && direction !== 'UP' && setDirection('DOWN'),
     onSwipedLeft: () =>
-      isPlaying && direction !== "RIGHT" && setDirection("LEFT"),
+      isPlaying && direction !== 'RIGHT' && setDirection('LEFT'),
     onSwipedRight: () =>
-      isPlaying && direction !== "LEFT" && setDirection("RIGHT"),
+      isPlaying && direction !== 'LEFT' && setDirection('RIGHT'),
   });
 
   // Game loop
@@ -73,16 +73,16 @@ const SnakeGame = () => {
       const head = [...newSnake[newSnake.length - 1]];
 
       switch (direction) {
-        case "UP":
+        case 'UP':
           head[1] -= 1;
           break;
-        case "DOWN":
+        case 'DOWN':
           head[1] += 1;
           break;
-        case "LEFT":
+        case 'LEFT':
           head[0] -= 1;
           break;
-        case "RIGHT":
+        case 'RIGHT':
           head[0] += 1;
           break;
         default:
@@ -131,7 +131,7 @@ const SnakeGame = () => {
     if (gameOver) {
       setSnake([[5, 5]]);
       setFood([10, 10]);
-      setDirection("RIGHT");
+      setDirection('RIGHT');
       setGameOver(false);
       setScore(0);
     }
@@ -146,33 +146,35 @@ const SnakeGame = () => {
   // Disable scrolling when the game is active
   useEffect(() => {
     if (isPlaying) {
-      document.body.style.overflow = "hidden"; // Disable scrolling during the game
+      document.body.style.overflow = 'hidden'; // Disable scrolling during the game
     } else {
-      document.body.style.overflow = "auto"; // Enable scrolling after the game ends or is paused
+      document.body.style.overflow = 'auto'; // Enable scrolling after the game ends or is paused
     }
 
     // Cleanup: ensure scrolling is re-enabled when the component is unmounted or the game ends
     return () => {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = 'auto';
     };
   }, [isPlaying]);
 
   return (
-    <div {...swipeHandlers} className="game-container">
+    <div
+      {...swipeHandlers}
+      className={`game-container ${darkMode ? 'dark' : ''}`}>
       <h1>Snake Game</h1>
       <h2>Score: {score}</h2>
       <button onClick={toggleGame}>
-        {gameOver ? "Restart" : isPlaying ? "Pause" : "Start"}
+        {gameOver ? 'Restart' : isPlaying ? 'Pause' : 'Start'}
       </button>
 
       <div>
         <h3>Difficulty:</h3>
-        <button onClick={() => changeDifficulty("slow")}>Slow</button>
-        <button onClick={() => changeDifficulty("medium")}>Medium</button>
-        <button onClick={() => changeDifficulty("fast")}>Fast</button>
+        <button onClick={() => changeDifficulty('slow')}>Slow</button>
+        <button onClick={() => changeDifficulty('medium')}>Medium</button>
+        <button onClick={() => changeDifficulty('fast')}>Fast</button>
       </div>
 
-      <div className="grid-container">
+      <div className='grid-container'>
         {Array.from({ length: GRID_SIZE }).map((_, row) =>
           Array.from({ length: GRID_SIZE }).map((_, col) => {
             const isSnake = snake.some(
@@ -183,14 +185,14 @@ const SnakeGame = () => {
               <div
                 key={`${row}-${col}`}
                 className={`grid-cell ${
-                  isSnake ? "snake" : isFood ? "food" : ""
+                  isSnake ? 'snake' : isFood ? 'food' : ''
                 }`}
               />
             );
           })
         )}
       </div>
-      {gameOver && <h3 className="game-over">Game Over!</h3>}
+      {gameOver && <h3 className='game-over'>Game Over!</h3>}
     </div>
   );
 };
